@@ -1,25 +1,17 @@
-// const path = require("path");
-const fs = require("fs");
-const mkdirp = require("mkdirp");
-const { stateless } = require("./blueprints/ReactComponents");
+const chalk = require("chalk");
+const figlet = require("figlet");
+const bundleComponent = require("./helpers");
 
-function createComponent(fileName) {
-  if (!fileName) throw "Should Provide a Component Name";
+// console.log(
+//   chalk.yellow(figlet.textSync("You're a wizard", { horizontalLayout: "full" }))
+// );
 
-  const componentName = fileName[0].toUpperCase() + fileName.slice(1);
-  const ReactComponent = stateless(componentName);
+// console.log(
+//   chalk.yellow(figlet.textSync("HARRY", { horizontalLayout: "full" }))
+// );
 
-  writeComponent(`${componentName}`, ReactComponent);
-}
-
-const writeComponent = (fileName, content) => {
-  const dir = `src/components/${fileName}`;
-
-  mkdirp.sync(dir);
-  return fs.writeFile(dir + `/${fileName}.js`, content, err => {
-    if (err) throw err;
-    console.log(`${fileName} is created successfully.`);
-  });
+const run = async () => {
+  const credentials = (await bundleComponent).credentials;
 };
 
-module.exports = createComponent;
+run();

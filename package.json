@@ -1,9 +1,21 @@
 {
-  "name": "blackbulls",
+  "name": "harry",
+  "description": "This Package is a CLI to create components for you (in your /src/components/ folder :D",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "keywords": [
+    "yarn",
+    "node",
+    "fast",
+    "react",
+    "components"
+  ],
+  "author": "Mateus Braga",
   "dependencies": {
+    "chalk": "^3.0.0",
+    "figlet": "^1.2.4",
+    "inquirer": "^7.0.4",
     "mkdirp": "^1.0.3"
   }
 }
