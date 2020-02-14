@@ -5,7 +5,7 @@ const questions = [
   {
     name: "name",
     type: "input",
-    message: "Provide the component you want to create:",
+    message: "Provide the component name you want to create:",
     validate: function(value) {
       if (value.length) {
         return true;
