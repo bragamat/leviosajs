@@ -3,7 +3,7 @@
 
 # It's LEVIOSA, not leviosaaah!
 
-- This CLI helps you to bundle reactjs components from the terminal. :rocket:
+- This CLI helps you to bundle react components from the terminal. :rocket:
 
 ### HOW TO USE
 
@@ -11,9 +11,15 @@
 
 You're gonna see the following message: 
 
-[LeviosaJS](./images/postinstallmessage.png)
+![](./images/postinstallmessage.png)
 
 then, in your terminal type in: `accio`
 
-within your project's folder, it will bundle an stateless component 
+The following message will ask you to type in the name of the component you want:
+
+![](./images/accioCli.png)
+
+After you typed the name of your react component and pressed `enter`, it will bundle the component within your project's folder, it will bundle an stateless component 
 inside `/src/components` and that's it! :smile:
+
+It doesn't matter if your project doesn't have the `src` folder or the folder `components`. :sunglasses:
