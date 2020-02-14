@@ -18,7 +18,7 @@ const writeComponent = (fileName, content) => {
   mkdirp.sync(dir);
   return fs.writeFile(dir + `/${fileName}.js`, content, err => {
     if (err) throw err;
-    console.log(`${fileName} is created successfully.`);
+    return console.log("\nDone");
   });
 };
 

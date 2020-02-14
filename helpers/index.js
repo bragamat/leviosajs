@@ -8,7 +8,7 @@ const questions = [
     message: "Provide the component you want to create:",
     validate: function(value) {
       if (value.length) {
-        return "Making Magic....\n" && createComponent(value);
+        return true;
       } else {
         return "Please, provide a name for your component";
       }
@@ -16,4 +16,7 @@ const questions = [
   }
 ];
 
-module.exports = inquirer.prompt(questions);
+module.exports = inquirer.prompt(questions).then(({ name }) => {
+  console.log("\n>>Making Magic...");
+  createComponent(name);
+});
