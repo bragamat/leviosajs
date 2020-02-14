@@ -6,3 +6,6 @@ console.clear();
 console.log(
   chalk.yellow(figlet.textSync("LEVIOSA!", { horizontalLayout: "full" }))
 );
+
+console.log(chalk.yellow("It's Leviosa, not Leviosaaa"));
+console.log(chalk.yellow("\nLeviosaJS successufully installed!"));
