@@ -1,0 +1,9 @@
+{
+  "name": "blackbulls",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "mkdirp": "^1.0.3"
+  }
+}
