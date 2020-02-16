@@ -8,7 +8,7 @@ function bundleFolderApp(appName) {
       bundleApp(appName);
     })
     .then(() => {
-      execSync(`cd ${process.cwd()}/${process.argv[2]}; npm i --verbose`, {
+      execSync(`cd ${process.argv[2]}; npm i --verbose`, {
         stdio: [0, 1, 2]
       });
     });
