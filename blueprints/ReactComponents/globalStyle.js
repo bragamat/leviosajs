@@ -1,6 +1,6 @@
 const globalStyle = () => `import { createGlobalStyle } from 'styled-components'
 
-const Container = createGlobalStyle\`
+const GlobalStyle = createGlobalStyle\`
 
   html {
     box-sizing: border-box;
@@ -33,7 +33,7 @@ const Container = createGlobalStyle\`
     background-color: #e6e6e6;
     color: #4c4c4c;
     font-family: '"Open Sans", sans-serif';
-    font-size: 10px;
+    font-size: 20px;
 
     &.vg-no-scroll {
       overflow-y: hidden;
