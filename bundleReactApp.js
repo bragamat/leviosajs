@@ -6,7 +6,7 @@ const run = async () => {
   if (!process.argv[2]) return console.log("Name is needed");
 
   const app = await bundleReactApp(process.argv[2]);
-  exec(`cd ${process.cwd()} && npm i`);
+  const app1 = await exec(`cd ${process.cwd()} && npm i`);
 };
 
 run();
