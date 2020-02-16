@@ -32,5 +32,9 @@
   "bugs": {
     "url": "https://github.com/bragamat/leviosajs/issues"
   },
-  "homepage": "https://github.com/bragamat/leviosajs#readme"
+  "homepage": "https://github.com/bragamat/leviosajs#readme",
+  "devDependencies": {
+    "webpack": "^4.41.6",
+    "webpack-dev-server": "^3.10.3"
+  }
 }

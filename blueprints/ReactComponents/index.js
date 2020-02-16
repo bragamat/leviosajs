@@ -1,3 +1,4 @@
 module.exports = {
-  stateless: require("./stateless")
+  stateless: require("./stateless"),
+  reactIndex: require("./reactIndex")
 };
