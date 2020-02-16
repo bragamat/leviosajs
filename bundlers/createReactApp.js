@@ -19,7 +19,7 @@ function createStaticFiles() {
   const dir = "myApp/public/";
   mkdirp(dir).then(() => {
     writeInFile(dir + "index.html", staticFiles());
-    writeInFile("package.json", packagejson("myApp"));
+    writeInFile("myApp/package.json", packagejson("myApp"));
   });
 }
 
