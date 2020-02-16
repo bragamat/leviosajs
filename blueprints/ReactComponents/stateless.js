@@ -1,11 +1,7 @@
 const stateless = name => `import React from 'react'
-
+//import { Container } from './styles
 function ${name}() {
-  return (
-    <div>
-      Please Change me! 😄
-    </div>
-  )
+  return "Please Change me! 😄"
 }
 
 export default ${name}`;

@@ -7,7 +7,11 @@ const staticFiles = require("../blueprints/static");
 const webpackConfig = require("../blueprints/webpack");
 const gitIgnore = require("../blueprints/gitIgnore.js");
 const packagejson = require("../blueprints/packageJson.js");
-const { stateless, reactIndex } = require("../blueprints/ReactComponents");
+const {
+  stateless,
+  reactIndex,
+  globalStyle
+} = require("../blueprints/ReactComponents");
 
 function createReactApp(appName) {
   console.log(chalk.yellow("wait a minute please"));
@@ -38,6 +42,7 @@ function createWebpackConfig(appName) {
 
 function createAppIndex(appName) {
   writeInFile(`${appName}/index.js`, reactIndex());
+  writeInFile(`${appName}/globalStyle.js`, globalStyle());
 }
 
 function createApp(appName) {

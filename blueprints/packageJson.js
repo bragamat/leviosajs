@@ -8,7 +8,8 @@ const packagejson = appName => `{
   },
   "dependencies": {
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "styled-components": "^5.0.1"
   },
   "devDependencies": {
     "webpack": "^4.41.6",
