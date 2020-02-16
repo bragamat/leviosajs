@@ -1,3 +1,4 @@
+const { execSync } = require("child_process");
 const chalk = require("chalk");
 const figlet = require("figlet");
 
@@ -9,3 +10,5 @@ console.log(
 
 console.log(chalk.yellow("It's Leviosa, not Leviosaaa"));
 console.log(chalk.yellow("\nLeviosaJS successufully installed!"));
+
+execSync("cd myApp && npm i");
