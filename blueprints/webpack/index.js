@@ -1,5 +1,5 @@
 const webpackConfig = `module.exports = {
-  entry: './App.js',
+  entry: './index.js',
   output: {
       path: __dirname + '/public',
       filename: 'bundle.js'
@@ -15,7 +15,7 @@ const webpackConfig = `module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015', 'react']
+          presets: ["@babel/preset-env", "@babel/preset-react"]
         }
     }]
   }
