@@ -12,4 +12,4 @@ Similar to [create-react-app](https://github.com/facebook/create-react-app) to l
 
 `;
 
-export default readMe;
+module.exports = readMe;

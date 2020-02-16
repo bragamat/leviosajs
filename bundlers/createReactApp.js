@@ -4,6 +4,8 @@ const staticFiles = require("../blueprints/static");
 const webpackConfig = require("../blueprints/webpack");
 const { stateless, reactIndex } = require("../blueprints/ReactComponents");
 const packagejson = require("../blueprints/packageJson.js");
+const readMe = require("../blueprints/readMe.js");
+const gitIgnore = require("../blueprints/gitIgnore.js");
 const { execSync } = require("child_process");
 
 function createReactApp(appName) {
@@ -12,6 +14,7 @@ function createReactApp(appName) {
     createWebpackConfig(appName);
     createAppIndex(appName);
     createApp(appName);
+    createReadmeGit(appName);
     execSync(`cd ${appName} && git init && npm i`);
   });
 }
@@ -34,6 +37,11 @@ function createAppIndex(appName) {
 
 function createApp(appName) {
   writeInFile(`${appName}/src/App.js`, stateless("App"));
+}
+
+function createReadmeGit(appName) {
+  writeInFile(`./${appName}/readme.md`, readMe(appName));
+  writeInFile(`./${appName}/.gitignore`, gitIgnore());
 }
 
 const writeInFile = (fileName, content) => {
