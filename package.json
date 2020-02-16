@@ -1,7 +1,7 @@
 {
   "name": "leviosajs",
   "description": "This is CLI helps you create components faster",
-  "version": "1.1.30",
+  "version": "1.1.31",
   "main": "./index.js",
   "bin": {
     "leviosa:accio": "./bundleComponent.js",
