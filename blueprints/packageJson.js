@@ -9,9 +9,13 @@ const packagejson = appName => `{
   "dependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
-  }
+  },
   "devDependencies": {
+    "babel-loader": "^8.0.6",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
     "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
   }
 }
