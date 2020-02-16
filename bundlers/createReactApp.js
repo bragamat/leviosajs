@@ -5,6 +5,7 @@ const staticFiles = require("../blueprints/static");
 const webpackConfig = require("../blueprints/webpack");
 const { stateless, reactIndex } = require("../blueprints/ReactComponents");
 const packagejson = require("../blueprints/packageJson.js");
+const { execSync } = require("child_process");
 
 function createReactApp() {
   mkdirp("./myApp/src/").then(() => {
@@ -12,6 +13,7 @@ function createReactApp() {
     createWebpackConfig();
     createAppIndex();
     createApp();
+    execSync("cd myApp && npm i");
   });
 }
 
