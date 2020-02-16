@@ -41,6 +41,4 @@ const writeInFile = (fileName, content) => {
   });
 };
 
-createReactApp();
-
 module.exports = createReactApp;
