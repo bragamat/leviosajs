@@ -1,14 +1,17 @@
 const fs = require("fs");
+const chalk = require("chalk");
 const mkdirp = require("mkdirp");
+const { execSync } = require("child_process");
+const readMe = require("../blueprints/readMe.js");
 const staticFiles = require("../blueprints/static");
 const webpackConfig = require("../blueprints/webpack");
-const { stateless, reactIndex } = require("../blueprints/ReactComponents");
-const packagejson = require("../blueprints/packageJson.js");
-const readMe = require("../blueprints/readMe.js");
 const gitIgnore = require("../blueprints/gitIgnore.js");
-const { execSync } = require("child_process");
+const packagejson = require("../blueprints/packageJson.js");
+const { stateless, reactIndex } = require("../blueprints/ReactComponents");
 
 function createReactApp(appName) {
+  console.log(chalk.yellow("wait a minute please"));
+  console.log(chalk.yellow("Creating application......."));
   mkdirp(`./${appName}/src/`).then(() => {
     createStaticFiles(appName);
     createWebpackConfig(appName);
@@ -16,6 +19,8 @@ function createReactApp(appName) {
     createApp(appName);
     createReadmeGit(appName);
     execSync(`cd ${appName} && git init && npm i`);
+    console.log(chalk.yellow("All setup!"));
+    console.log(chalk.yellow(`cd ${appName} && npm start`));
   });
 }
 
