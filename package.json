@@ -1,10 +1,10 @@
 {
   "name": "leviosajs",
   "description": "This is CLI helps you create components faster",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "./index.js",
   "bin": {
-    "accio": "./bundleComponent.js",
+    "leviosa:accio": "./bundleComponent.js",
     "leviosa:new": "./bundleReactApp.js"
   },
   "license": "MIT",
@@ -20,9 +20,7 @@
     "chalk": "^3.0.0",
     "figlet": "^1.2.4",
     "inquirer": "^7.0.4",
-    "mkdirp": "^1.0.3",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "mkdirp": "^1.0.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -35,9 +33,5 @@
   "bugs": {
     "url": "https://github.com/bragamat/leviosajs/issues"
   },
-  "homepage": "https://github.com/bragamat/leviosajs#readme",
-  "devDependencies": {
-    "webpack": "^4.41.6",
-    "webpack-dev-server": "^3.10.3"
-  }
+  "homepage": "https://github.com/bragamat/leviosajs#readme"
 }
