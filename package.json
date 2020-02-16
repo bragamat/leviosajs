@@ -1,11 +1,12 @@
 {
   "name": "leviosajs",
   "description": "This is CLI helps you create components faster",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "main": "./index.js",
   "bin": {
     "leviosa:accio": "./bundleComponent.js",
-    "leviosa:new": "./bundleReactApp.js"
+    "leviosa:new": "./bundleReactApp.js",
+    "leviosa:start": "npm start"
   },
   "license": "MIT",
   "keywords": [
