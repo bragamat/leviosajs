@@ -4,7 +4,8 @@
   "version": "1.0.3",
   "main": "./index.js",
   "bin": {
-    "accio": "./index.js"
+    "accio": "./index.js",
+    "leviosa new": "./bundlers/createReactApp.js"
   },
   "license": "MIT",
   "keywords": [
