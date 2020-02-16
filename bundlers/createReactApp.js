@@ -40,8 +40,6 @@ function createApp() {
 const writeInFile = (fileName, content) => {
   return fs.writeFile(fileName, content, err => {
     if (err) throw err;
-
-    return console.log("\nDone");
   });
 };
 
