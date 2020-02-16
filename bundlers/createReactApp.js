@@ -4,6 +4,7 @@ const mkdirp = require("mkdirp");
 const staticFiles = require("../blueprints/static");
 const webpackConfig = require("../blueprints/webpack");
 const { stateless, reactIndex } = require("../blueprints/ReactComponents");
+const packagejson = require("../blueprints/packageJson.js");
 
 function createReactApp() {
   mkdirp("./myApp/src/").then(() => {
@@ -18,6 +19,7 @@ function createStaticFiles() {
   const dir = "myApp/public/";
   mkdirp(dir).then(() => {
     writeInFile(dir + "index.html", staticFiles());
+    writeInFile("package.json", packagejson("myApp"));
   });
 }
 

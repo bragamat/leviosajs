@@ -13,7 +13,7 @@ function createComponent(fileName) {
 }
 
 const writeComponent = (fileName, content) => {
-  const dir = `myApp/src/components/${fileName}`;
+  const dir = `src/components/${fileName}`;
 
   mkdirp.sync(dir);
   return fs.writeFile(dir + `/${fileName}.js`, content, err => {

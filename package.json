@@ -20,7 +20,9 @@
     "chalk": "^3.0.0",
     "figlet": "^1.2.4",
     "inquirer": "^7.0.4",
-    "mkdirp": "^1.0.3"
+    "mkdirp": "^1.0.3",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
