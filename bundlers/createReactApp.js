@@ -1,4 +1,3 @@
-// const path = require("path");
 const fs = require("fs");
 const mkdirp = require("mkdirp");
 const staticFiles = require("../blueprints/static");
@@ -7,34 +6,34 @@ const { stateless, reactIndex } = require("../blueprints/ReactComponents");
 const packagejson = require("../blueprints/packageJson.js");
 const { execSync } = require("child_process");
 
-function createReactApp() {
-  mkdirp("./myApp/src/").then(() => {
-    createStaticFiles();
-    createWebpackConfig();
-    createAppIndex();
-    createApp();
-    execSync("cd myApp && npm i");
+function createReactApp(appName) {
+  mkdirp(`./${appName}/src/`).then(() => {
+    createStaticFiles(appName);
+    createWebpackConfig(appName);
+    createAppIndex(appName);
+    createApp(appName);
+    execSync(`cd ${appName} && git init && npm i`);
   });
 }
 
-function createStaticFiles() {
-  const dir = "myApp/public/";
+function createStaticFiles(appName) {
+  const dir = `${appName}/public/`;
   mkdirp(dir).then(() => {
     writeInFile(dir + "index.html", staticFiles());
-    writeInFile("myApp/package.json", packagejson("myApp"));
+    writeInFile(`${appName}/package.json`, packagejson(appName));
   });
 }
 
-function createWebpackConfig() {
-  writeInFile("myApp/webpack.config.js", webpackConfig);
+function createWebpackConfig(appName) {
+  writeInFile(`${appName}/webpack.config.js`, webpackConfig);
 }
 
-function createAppIndex() {
-  writeInFile("myApp/index.js", reactIndex());
+function createAppIndex(appName) {
+  writeInFile(`${appName}/index.js`, reactIndex());
 }
 
-function createApp() {
-  writeInFile("myApp/src/App.js", stateless("App"));
+function createApp(appName) {
+  writeInFile(`${appName}/src/App.js`, stateless("App"));
 }
 
 const writeInFile = (fileName, content) => {

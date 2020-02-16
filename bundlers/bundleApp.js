@@ -1,9 +1,9 @@
 const mkdirp = require("mkdirp");
 const bundleApp = require("./createReactApp");
 
-function bundleFolderApp() {
-  mkdirp("myApp").then(() => {
-    bundleApp();
+function bundleFolderApp(appName) {
+  mkdirp(appName).then(() => {
+    bundleApp(appName);
   });
 }
 
