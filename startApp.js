@@ -1,3 +1,7 @@
-const { execSync } = require("child_process");
+const { exec, execSync } = require("child_process");
 
-execSync("npm start");
+function startApp() {
+  execSync(`npm start`);
+}
+
+startApp();
