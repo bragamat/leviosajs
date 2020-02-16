@@ -17,6 +17,10 @@ const packagejson = appName => `{
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
   }
 }
 `;

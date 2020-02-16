@@ -1,6 +1,6 @@
 const readMe = appName => `#${appName}
 Project bundled with LeviosaJs
-Similar to [create-react-app](https://github.com/facebook/create-react-app) to lighter :sunglasses:
+Similar to [create-react-app](https://github.com/facebook/create-react-app) but lighter :sunglasses:
 
 ## Using
 
