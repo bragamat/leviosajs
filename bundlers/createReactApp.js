@@ -6,7 +6,7 @@ const webpackConfig = require("../blueprints/webpack");
 const { stateless, reactIndex } = require("../blueprints/ReactComponents");
 
 function createReactApp() {
-  mkdirp("./src/").then(() => {
+  mkdirp("./myApp/src/").then(() => {
     createStaticFiles();
     createWebpackConfig();
     createAppIndex();
@@ -15,22 +15,22 @@ function createReactApp() {
 }
 
 function createStaticFiles() {
-  const dir = "public/";
+  const dir = "myApp/public/";
   mkdirp(dir).then(() => {
     writeInFile(dir + "index.html", staticFiles());
   });
 }
 
 function createWebpackConfig() {
-  writeInFile("webpack.config.js", webpackConfig);
+  writeInFile("myApp/webpack.config.js", webpackConfig);
 }
 
 function createAppIndex() {
-  writeInFile("index.js", reactIndex());
+  writeInFile("myApp/index.js", reactIndex());
 }
 
 function createApp() {
-  writeInFile("./src/App.js", stateless("App"));
+  writeInFile("myApp/src/App.js", stateless("App"));
 }
 
 const writeInFile = (fileName, content) => {
