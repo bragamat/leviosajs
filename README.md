@@ -8,9 +8,9 @@
 
 ### Command
 
-- `leviosa:new app` - Creates a react application with name `app`
-- `leviosa:accio header` - Creates a component with the name `header`
-- `leviosa:start` - Starts the application :smiley:
+- `leviosa-new app` - Creates a react application with name `app`
+- `leviosa-accio header` - Creates a component with the name `header`
+- `leviosa-start` - Starts the application :smiley:
 
 ### HOW TO INSTALL
 
