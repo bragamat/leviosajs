@@ -4,9 +4,13 @@ const mkdirp = require("mkdirp");
 const { execSync } = require("child_process");
 const readMe = require("../blueprints/readMe.js");
 const staticFiles = require("../blueprints/static");
+const appTest = require("../blueprints/tests/AppTest");
 const webpackConfig = require("../blueprints/webpack");
+const jestConfig = require("../blueprints/jestConfig");
 const gitIgnore = require("../blueprints/gitIgnore.js");
+const babelConfig = require("../blueprints/babelConfig");
 const packagejson = require("../blueprints/packageJson.js");
+
 const {
   stateless,
   reactIndex,
@@ -22,9 +26,10 @@ function createReactApp(appName) {
     createAppIndex(appName);
     createApp(appName);
     createReadmeGit(appName);
+    createTestSetup(appName);
     execSync(`cd ${appName} && git init && npm i`);
-    console.log(chalk.yellow("All setup!"));
-    console.log(chalk.yellow(`cd ${appName} && npm start`));
+    console.log(chalk.yellow("setup done!"));
+    console.log(chalk.yellow(`cd ${appName} && npm i && leviosa-start`));
   });
 }
 
@@ -47,11 +52,21 @@ function createAppIndex(appName) {
 
 function createApp(appName) {
   writeInFile(`${appName}/src/App.js`, stateless("App"));
+
+  const dir = `${appName}/src/__tests__/`;
+  mkdirp(dir).then(() => {
+    writeInFile(dir + "App.test.js", appTest());
+  });
 }
 
 function createReadmeGit(appName) {
-  writeInFile(`./${appName}/readme.md`, readMe(appName));
-  writeInFile(`./${appName}/.gitignore`, gitIgnore());
+  writeInFile(`${appName}/readme.md`, readMe(appName));
+  writeInFile(`${appName}/.gitignore`, gitIgnore());
+}
+
+function createTestSetup(appName) {
+  writeInFile(`${appName}/jest.config.js`, jestConfig());
+  writeInFile(`${appName}/babel.config.js`, babelConfig());
 }
 
 const writeInFile = (fileName, content) => {
