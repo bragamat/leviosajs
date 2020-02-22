@@ -54,7 +54,7 @@ function createAppIndex(appName) {
 }
 
 function createApp(appName) {
-  writeInFile(`${appName}/src/App.js`, stateless(app()));
+  writeInFile(`${appName}/src/App.js`, stateless(false, app()));
   writeInFile(`${appName}/src/styles.js`, styles(appStyle));
 
   const dir = `${appName}/src/__tests__/`;
