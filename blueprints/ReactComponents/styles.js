@@ -1,4 +1,7 @@
-const style = () => `import styled from 'styled-components'
+const style = content => {
+  if (content) return content;
+
+  return `import styled from 'styled-components'
 
 export const Container = styled.div\`
   width: 100vw;
@@ -9,5 +12,6 @@ export const Container = styled.div\`
 
 \`
 `;
+};
 
 module.exports = style;

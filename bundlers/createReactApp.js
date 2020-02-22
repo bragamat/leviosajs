@@ -14,7 +14,10 @@ const packagejson = require("../blueprints/packageJson.js");
 const {
   stateless,
   reactIndex,
-  globalStyle
+  globalStyle,
+  styles,
+  appStyle,
+  app
 } = require("../blueprints/ReactComponents");
 
 function createReactApp(appName) {
@@ -51,7 +54,8 @@ function createAppIndex(appName) {
 }
 
 function createApp(appName) {
-  writeInFile(`${appName}/src/App.js`, stateless("App"));
+  writeInFile(`${appName}/src/App.js`, stateless(app()));
+  writeInFile(`${appName}/src/styles.js`, styles(appStyle));
 
   const dir = `${appName}/src/__tests__/`;
   mkdirp(dir).then(() => {
