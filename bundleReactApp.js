@@ -1,4 +1,4 @@
-#! /usr/bin/env node --use-strict
+#! /usr/bin/env node
 const bundleReactApp = require("./bundlers/bundleApp");
 
 const run = async () => {
