@@ -14,7 +14,11 @@
 
 ### HOW TO INSTALL
 
-`npm install --global leviosajs`
+- `npm install --global leviosajs`
+
+or using yarn
+
+- `yarn global add leviosajs`
 
 You're gonna see the following message: 
 
