@@ -22,7 +22,6 @@ const packagejson = appName => `{
     "@babel/preset-env": "^7.8.4",
     "webpack-dev-server": "^3.10.3",
     "@babel/preset-react": "^7.8.3",
-    "babel-preset-es2015": "^6.24.1",
     "@testing-library/react": "^9.4.0"
   },
   "repository": {
