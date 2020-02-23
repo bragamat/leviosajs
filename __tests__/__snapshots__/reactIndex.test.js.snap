@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshots appDir/index.js 1`] = `
+"import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './src/App'
+
+ReactDOM.render(<App />, document.querySelector(\\"[react-root='app']\\"))"
+`;
+
+exports[`Snapshots appDir/jest.config.js 1`] = `
+"module.exports = {
+  verbose: true,
+  globals: {
+    __DEV__: true
+  }
+};
+"
+`;
