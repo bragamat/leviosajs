@@ -1,17 +1,16 @@
+const inquirer = require("inquirer");
 const createComponent = require("../bundlers/createComponent");
-let inquirer = require("inquirer");
 
 const questions = [
   {
     name: "name",
     type: "input",
     message: "Provide the component name you want to create:",
-    validate: function(value) {
+    validate(value) {
       if (value.length) {
         return true;
-      } else {
-        return "Please, provide a name for your component";
       }
+      return "Please, provide a name for your component";
     }
   }
 ];

@@ -20,26 +20,16 @@ const {
   app
 } = require("../blueprints/ReactComponents");
 
-function createReactApp(appName) {
-  console.log(chalk.yellow("wait a minute please"));
-  console.log(chalk.yellow("Creating application......."));
-  mkdirp(`./${appName}/src/`).then(() => {
-    createStaticFiles(appName);
-    createWebpackConfig(appName);
-    createAppIndex(appName);
-    createApp(appName);
-    createReadmeGit(appName);
-    createTestSetup(appName);
-    execSync(`(cd ${appName} && git init && npm i --verbose)`);
-    console.log(chalk.yellow("setup done!"));
-    console.log(chalk.yellow(`cd ${appName} && npm i && leviosa-start`));
+const writeInFile = (fileName, content) => {
+  return fs.writeFile(fileName, content, err => {
+    if (err) throw err;
   });
-}
+};
 
 function createStaticFiles(appName) {
   const dir = `${appName}/public/`;
   mkdirp(dir).then(() => {
-    writeInFile(dir + "index.html", staticFiles());
+    writeInFile(`${dir}index.html`, staticFiles());
     writeInFile(`${appName}/package.json`, packagejson(appName));
   });
 }
@@ -59,7 +49,7 @@ function createApp(appName) {
 
   const dir = `${appName}/src/__tests__/`;
   mkdirp(dir).then(() => {
-    writeInFile(dir + "App.test.js", appTest());
+    writeInFile(`${dir}App.test.js`, appTest());
   });
 }
 
@@ -73,10 +63,20 @@ function createTestSetup(appName) {
   writeInFile(`${appName}/babel.config.js`, babelConfig());
 }
 
-const writeInFile = (fileName, content) => {
-  return fs.writeFile(fileName, content, err => {
-    if (err) throw err;
+function createReactApp(appName) {
+  console.log(chalk.yellow("wait a minute please"));
+  console.log(chalk.yellow("Creating application......."));
+  mkdirp(`./${appName}/src/`).then(() => {
+    createStaticFiles(appName);
+    createWebpackConfig(appName);
+    createAppIndex(appName);
+    createApp(appName);
+    createReadmeGit(appName);
+    createTestSetup(appName);
+    execSync(`(cd ${appName} && git init && npm i --verbose)`);
+    console.log(chalk.yellow("setup done!"));
+    console.log(chalk.yellow(`cd ${appName} && npm i && leviosa-start`));
   });
-};
+}
 
 module.exports = createReactApp;

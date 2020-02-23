@@ -32,6 +32,7 @@
   },
   "scripts": {
     "test": "jest --watchAll",
+    "lint": "./node_modules/.bin/eslint ./helpers ./bundlers --fix",
     "postinstall": "node ./helpers/postInstallMessage.js"
   },
   "repository": {
