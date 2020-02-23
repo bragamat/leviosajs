@@ -8,7 +8,7 @@ describe("Snapshots", () => {
 
     expect(component).toContain("import App from");
     expect(component).toContain("ReactDOM.render");
-    expect(reactIndex()).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   });
 
   it("appDir/jest.config.js", () => {
