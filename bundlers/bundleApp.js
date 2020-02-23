@@ -11,4 +11,6 @@ function bundleFolderApp(appName) {
   });
 }
 
+bundleFolderApp("app");
+
 module.exports = bundleFolderApp;

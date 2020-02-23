@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshots appDir/index.js 1`] = `
+"import React from \\"react\\";
+import { Container, Img, Text, List, ListItem } from \\"./styles\\";
+import GlobalStyles from \\"../globalStyle\\";
+
+const commands = [
+  {
+    key: Math.random(4),
+    name: \\"new\\",
+    description: \\"To bundle a new React App ✨\\"
+  },
+  {
+    key: Math.random(4),
+    name: \\"start\\",
+    description: \\"To start your application 🚀\\"
+  },
+  {
+    key: Math.random(4),
+    name: \\"test\\",
+    description: \\"To run the test suites 📈\\"
+  }
+];
+
+function App() {
+  return (
+    <>
+      <GlobalStyles />
+      <Container>
+        <Img src=\\"https://raw.githubusercontent.com/bragamat/leviosajs/master/images/leviosa.gif\\" alt=\\"logo\\" />
+        <Text>
+          Feel Free to Change me at <code>/src/App.js</code> 😄
+        </Text>
+        <Text>You have the following commands available on your terminal:</Text>
+        <List>
+          {commands.map(({ key, name, description }) => (
+            <ListItem key={key}>
+              <Text>
+                <code>leviosa:{name}</code> - {description}
+              </Text>
+            </ListItem>
+          ))}
+        </List>
+      </Container>
+    </>
+  );
+}
+
+export default App;
+"
+`;
