@@ -4,10 +4,11 @@
   "version": "1.2.24",
   "main": "./index.js",
   "bin": {
-    "leviosa-accio": "./bundleComponent.js",
-    "leviosa-new": "./bundleReactApp.js",
-    "leviosa-start": "./startApp.js",
-    "leviosa-test": "./testApp.js"
+    "leviosa-accio": "./commands/bundleComponent.js",
+    "leviosa-new": "./commands/bundleReactApp.js",
+    "leviosa-start": "./commands/startApp.js",
+    "leviosa-test": "./commands/testApp.js",
+    "leviosa-build": "./commands/buildApp.js"
   },
   "license": "MIT",
   "keywords": [
