@@ -15,8 +15,18 @@ const commands = [
   },
   {
     key: Math.random(4),
+    name: "build",
+    description: "To build your application for production 😎"
+  },
+  {
+    key: Math.random(4),
+    name: "accio",
+    description: "To build a new component for your application 💥"
+  },
+  {
+    key: Math.random(4),
     name: "test",
-    description: "To run the test suites 📈"
+    description: "To run tests 📈"
   }
 ];
 
@@ -34,7 +44,7 @@ function App() {
           {commands.map(({ key, name, description }) => (
             <ListItem key={key}>
               <Text>
-                <code>leviosa:{name}</code> - {description}
+                <code>leviosa-{name}</code> - {description}
               </Text>
             </ListItem>
           ))}
