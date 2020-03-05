@@ -1,4 +1,4 @@
-![leviosajs](https://img.shields.io/badge/leviosajs-1.1.31-yellowgreen) ![node](https://img.shields.io/badge/node-12.9.1-yellow) ![npm](https://img.shields.io/badge/npm-6.11.3-yellow)
+![leviosajs](https://img.shields.io/badge/leviosajs-1.2.31-yellowgreen) ![node](https://img.shields.io/badge/node-12.9.1-yellow) ![npm](https://img.shields.io/badge/npm-6.11.3-yellow)
 
 ![leviosa](https://pa1.narvii.com/6660/c238c33782e1318a08f7778b8890629121d458ac_hq.gif)
 # It's LEVIOSA, not leviosaaah!
@@ -8,9 +8,10 @@
 
 ### Command
 
-- `leviosa-new app` - Creates a react application with name `app`
-- `leviosa-accio header` - Creates a component with the name `header`
+- `leviosa-new app` - Creates a react application with name `app` :rocket:
+- `leviosa-accio header` - Creates a component with the name `header` :boom:
 - `leviosa-start` - Starts the application :smiley:
+- `leviosa-build` - Builds the applicaiton to production :sunglasses:
 
 ### HOW TO INSTALL
 
@@ -20,7 +21,7 @@ or using yarn
 
 - `yarn global add leviosajs`
 
-You're gonna see the following message: 
+You're gonna see the following message:
 
 ![](./images/postinstallmessage.png)
 
@@ -32,5 +33,5 @@ The following message will ask you to type in the name of the component you want
 
 ![](./images/accioCli.png)
 
-After you typed the name of your react component and pressed `enter`, it will bundle the component within your project's folder, it will bundle an stateless component 
+After you typed the name of your react component and pressed `enter`, it will bundle the component within your project's folder, it will bundle an stateless component
 inside `/src/components` and that's it! :smile:

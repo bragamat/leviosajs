@@ -28,6 +28,7 @@ module.exports = {
     "prettier/prettier": "error",
     "react/jsx-filename-extension": ["warn", { extensions: [".jsx", ".js"] }],
     "import/prefer-default-export": "off",
-    "no-console": "off"
+    "no-console": "off",
+    "global-require": "off"
   }
 };

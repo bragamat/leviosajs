@@ -5,7 +5,6 @@ const { execSync } = require("child_process");
 const readMe = require("../blueprints/readMe.js");
 const staticFiles = require("../blueprints/static");
 const appTest = require("../blueprints/tests/AppTest");
-const webpackConfig = require("../blueprints/webpack");
 const jestConfig = require("../blueprints/jestConfig");
 const gitIgnore = require("../blueprints/gitIgnore.js");
 const babelConfig = require("../blueprints/babelConfig");
@@ -19,6 +18,8 @@ const {
   appStyle,
   app
 } = require("../blueprints/ReactComponents");
+
+const { common, dev, prod } = require("../blueprints/webpack");
 
 const writeInFile = (fileName, content) => {
   return fs.writeFile(fileName, content, err => {
@@ -35,7 +36,9 @@ function createStaticFiles(appName) {
 }
 
 function createWebpackConfig(appName) {
-  writeInFile(`${appName}/webpack.config.js`, webpackConfig);
+  writeInFile(`${appName}/webpack.common.js`, common());
+  writeInFile(`${appName}/webpack.dev.js`, dev());
+  writeInFile(`${appName}/webpack.prod.js`, prod());
 }
 
 function createAppIndex(appName) {
