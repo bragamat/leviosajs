@@ -1,4 +1,5 @@
 const webpackCommonConfig = () => `const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./index.js",
@@ -14,7 +15,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.(js|jsx)$/,
+        test: /\\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: "babel-loader",
         query: {
@@ -22,7 +23,13 @@ module.exports = {
         }
       }
     ]
-  }
-};`;
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./public/index.html"
+    })
+  ]
+};
+`;
 
 module.exports = webpackCommonConfig;

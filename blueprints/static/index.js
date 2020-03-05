@@ -8,7 +8,6 @@ const staticFiles = () => `<!DOCTYPE html>
 </head>
 <body>
   <div react-root="app"></div>
-  <script src="bundle.js"></script>
 </body>
 </html>`;
 

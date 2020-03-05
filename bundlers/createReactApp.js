@@ -76,7 +76,7 @@ function createReactApp(appName) {
     createApp(appName);
     createReadmeGit(appName);
     createTestSetup(appName);
-    execSync(`(cd ${appName} && git init && npm i --verbose)`);
+    execSync(`(cd ${appName} && git init)`);
     console.log(chalk.yellow("setup done!"));
     console.log(chalk.yellow(`cd ${appName} && npm i && leviosa-start`));
   });
