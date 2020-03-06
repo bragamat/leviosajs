@@ -2,6 +2,7 @@ const fs = require("fs");
 const chalk = require("chalk");
 const mkdirp = require("mkdirp");
 const { execSync } = require("child_process");
+const { exec } = require("child_process");
 const readMe = require("../blueprints/readMe.js");
 const staticFiles = require("../blueprints/static");
 const appTest = require("../blueprints/tests/AppTest");
@@ -77,8 +78,12 @@ function createReactApp(appName) {
     createReadmeGit(appName);
     createTestSetup(appName);
     execSync(`(cd ${appName} && git init)`);
-    console.log(chalk.yellow("setup done!"));
-    console.log(chalk.yellow(`cd ${appName} && npm i && leviosa-start`));
+    exec(`cd ${process.cwd()}/${appName} && npm install`, () => {
+      console.log("Setup Done! :D");
+      return execSync(`cd ${process.cwd()}/${appName} && leviosa-start`, {
+        stdio: [0, 1, 2]
+      });
+    });
   });
 }
 

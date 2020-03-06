@@ -1,7 +1,8 @@
 .git
 .DS_Store
-
+.github
 yarn.lock
 package-lock.json
 coverage/
 __tests__/
+images/

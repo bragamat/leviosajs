@@ -5,7 +5,7 @@ describe("PostInstall", () => {
     console.log = jest.fn();
     console.clear = jest.fn();
     runConsoleMessages();
-    expect(console.log).toHaveBeenCalledTimes(4);
+    expect(console.log).toHaveBeenCalledTimes(2);
     expect(console.clear).toHaveBeenCalledTimes(1);
   });
 });
