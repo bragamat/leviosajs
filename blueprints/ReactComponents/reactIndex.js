@@ -1,7 +1,17 @@
 const reactIndex = () => `import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from "react-dom";
 import App from './src/App'
 
-ReactDOM.render(<App />, document.querySelector("[react-root='app']"))`;
+render(<App />, document.querySelector("[react-root='app']"))
+
+if (module.hot) {
+  module.hot.accept("./src/App.js", () => {
+    const NextRootContainer = require("./src/App.js").default;
+    render(<NextRootContainer />, document.querySelector("[react-root='app']"));
+  });
+}
+
+
+`;
 
 module.exports = reactIndex;

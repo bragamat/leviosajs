@@ -4,7 +4,7 @@ const packagejson = appName => `{
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "start": "webpack-dev-server --open --config webpack.dev.js --hot",
     "build": "webpack --config webpack.prod.js",
     "test": "jest --watchAll"
   },
