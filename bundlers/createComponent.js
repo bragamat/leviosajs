@@ -7,7 +7,7 @@ const writeComponent = (fileName, content) => {
   const dir = `src/components/${fileName}`;
 
   mkdirp.sync(dir);
-  return fs.writeFile(`${dir}/${fileName}.js`, content, err => {
+  return fs.writeFile(`${dir}/index.js`, content, err => {
     if (err) throw err;
   });
 };

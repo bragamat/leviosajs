@@ -6,13 +6,6 @@
 - This CLI helps you to bundle react components and aplications faster from the terminal. :rocket:
 - Much like [create-react-app](https://github.com/facebook/create-react-app) but faster, simpler, lighter and with a few more helpers!
 
-### Command
-
-- `leviosa-new app` - Creates a react application with name `app` :rocket:
-- `leviosa-accio header` - Creates a component with the name `header` :boom:
-- `leviosa-start` - Starts the application :smiley:
-- `leviosa-build` - Builds the applicaiton to production :sunglasses:
-
 ### HOW TO INSTALL
 
 - `npm install --global leviosajs`
@@ -21,17 +14,23 @@ or using yarn
 
 - `yarn global add leviosajs`
 
-You're gonna see the following message:
 
-![](./images/postinstallmessage.png)
+### Commands Available
 
-and that's it! You're good to go.
+- `leviosa-new` - Creates a react application :rocket:
+- `leviosa-accio` - Creates a component :boom:
+- `leviosa-start` - Starts the application :smiley:
+- `leviosa-build` - Builds the applicaiton to production :sunglasses:
 
-When you use the `leviosa:accio` command
-
-The following message will ask you to type in the name of the component you want to create:
-
+### HOW TO USE THEM
+##### `leviosa-new`
+- It receives an argument, what will be the name of the application. Let's say we want to create a reactjs application with the name _created-with-leviosajs_, All we have to do is:
+`$ leviosa-new created-with-leviosajs`
+It will bundle all the application and open it on browser.
+##### `leviosa-accio`
+- It will ask for an input, what will be the name of the component we want to build. Let's say we want to create a new component named _Header_ within our already built reactjs application. Run the commando
+`$ leviosa-accio`
+ and the following question will popup on your terminal:
 ![](./images/accioCli.png)
+We type in _header_ and it will be created at _src/components/Header/index.js_
 
-After you typed the name of your react component and pressed `enter`, it will bundle the component within your project's folder, it will bundle an stateless component
-inside `/src/components` and that's it! :smile:
