@@ -25,7 +25,8 @@ const packagejson = appName => `{
     "webpack-cli": "^3.3.11",
     "webpack-merge": "^4.2.2",
     "webpack-dev-server": "^3.10.3",
-    "html-webpack-plugin": "^3.2.0"
+    "html-webpack-plugin": "^3.2.0",
+    "react-hot-loader": "^4.12.19"
 
   },
   "repository": {

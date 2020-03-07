@@ -2,7 +2,7 @@ const webpackCommonConfig = () => `const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./index.js",
+  entry: ["react-hot-loader/patch", "./index.js"],
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "build")
@@ -21,6 +21,12 @@ module.exports = {
         query: {
           presets: ["@babel/preset-env", "@babel/preset-react"]
         }
+      },
+      {
+        test: /\\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loaders: ["react-hot-loader/webpack", "babel-loader"],
+        include: path.join(__dirname, "src")
       }
     ]
   },

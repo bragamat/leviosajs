@@ -1,4 +1,5 @@
 const appComponent = () => `import React from "react";
+import { hot } from "react-hot-loader/root";
 import { Container, Img, Text, List, ListItem } from "./styles";
 import GlobalStyles from "../globalStyle";
 
@@ -54,7 +55,7 @@ function App() {
   );
 }
 
-export default App;
+export default hot(App);
 `;
 
 module.exports = appComponent;
