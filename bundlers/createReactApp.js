@@ -9,7 +9,9 @@ const appTest = require("../blueprints/tests/AppTest");
 const jestConfig = require("../blueprints/jestConfig");
 const gitIgnore = require("../blueprints/gitIgnore.js");
 const babelConfig = require("../blueprints/babelConfig");
-const packagejson = require("../blueprints/packageJson.js");
+const {
+  packagesList: { devDependencies, dependencies }
+} = require("../blueprints/packageJson.js");
 
 const {
   stateless,
@@ -32,7 +34,6 @@ function createStaticFiles(appName) {
   const dir = `${appName}/public/`;
   mkdirp(dir).then(() => {
     writeInFile(`${dir}index.html`, staticFiles());
-    writeInFile(`${appName}/package.json`, packagejson(appName));
   });
 }
 
@@ -71,16 +72,19 @@ function createReactApp(appName) {
   console.log(chalk.yellow("wait a minute please"));
   console.log(chalk.yellow("Creating application......."));
   mkdirp(`./${appName}/src/`).then(() => {
+    const appPath = `${process.cwd()}/${appName}`;
+    const dep = dependencies.join(" ");
+    const devDep = devDependencies.join(" ");
     createStaticFiles(appName);
     createWebpackConfig(appName);
     createAppIndex(appName);
     createApp(appName);
     createReadmeGit(appName);
     createTestSetup(appName);
-    execSync(`(cd ${appName} && git init)`);
-    exec(`cd ${process.cwd()}/${appName} && npm install`, () => {
+    execSync(`(cd ${appPath} && git init)`);
+    exec(`cd ${appPath} && npm i -D ${devDep} && npm i -S ${dep}`, () => {
       console.log("Setup Done! :D");
-      return execSync(`cd ${process.cwd()}/${appName} && leviosa-start`, {
+      return execSync(`cd ${appPath} && leviosa-start`, {
         stdio: [0, 1, 2]
       });
     });

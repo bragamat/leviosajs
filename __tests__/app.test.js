@@ -7,7 +7,7 @@ describe("Snapshots", () => {
 
     expect(component).toContain("<GlobalStyles />");
     expect(component).toContain("/src/App.js");
-    expect(component).toContain("export default App");
+    expect(component).toContain("export default hot(App)");
     expect(app()).toMatchSnapshot();
   });
 });

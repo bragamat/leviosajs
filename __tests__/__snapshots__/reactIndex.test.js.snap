@@ -1,11 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Snapshots appDir/index.js 1`] = `
-"import React from 'react'
-import ReactDOM from 'react-dom'
+"import \\"react-hot-loader/patch\\";
+import React from 'react'
+import ReactDOM from \\"react-dom\\";
+import { AppContainer } from \\"react-hot-loader\\";
 import App from './src/App'
 
-ReactDOM.render(<App />, document.querySelector(\\"[react-root='app']\\"))"
+const render = Component => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    document.querySelector(\\"[react-root='app']\\")
+  );
+};
+
+render(App);
+
+if (module.hot) {
+  module.hot.accept(\\"./src/App.js\\", () => {
+    const NextRootContainer = require(\\"./src/App.js\\").default;
+    render(<NextRootContainer />);
+  });
+}
+"
 `;
 
 exports[`Snapshots appDir/jest.config.js 1`] = `
