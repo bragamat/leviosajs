@@ -1,8 +1,7 @@
 const fs = require("fs");
 const chalk = require("chalk");
 const mkdirp = require("mkdirp");
-const { execSync } = require("child_process");
-const { exec } = require("child_process");
+const { exec, execSync } = require("child_process");
 const readMe = require("../blueprints/readMe.js");
 const staticFiles = require("../blueprints/static");
 const appTest = require("../blueprints/tests/AppTest");
@@ -10,7 +9,9 @@ const jestConfig = require("../blueprints/jestConfig");
 const gitIgnore = require("../blueprints/gitIgnore.js");
 const babelConfig = require("../blueprints/babelConfig");
 const {
-  packagesList: { devDependencies, dependencies }
+  devDependencies,
+  dependencies,
+  script
 } = require("../blueprints/packageJson.js");
 
 const {
@@ -34,6 +35,7 @@ function createStaticFiles(appName) {
   const dir = `${appName}/public/`;
   mkdirp(dir).then(() => {
     writeInFile(`${dir}index.html`, staticFiles());
+    writeInFile(`${appName}/package.json`, script);
   });
 }
 
@@ -69,10 +71,10 @@ function createTestSetup(appName) {
 }
 
 function createReactApp(appName) {
+  const appPath = `${process.cwd()}/${appName}`;
   console.log(chalk.yellow("wait a minute please"));
   console.log(chalk.yellow("Creating application......."));
   mkdirp(`./${appName}/src/`).then(() => {
-    const appPath = `${process.cwd()}/${appName}`;
     const dep = dependencies.join(" ");
     const devDep = devDependencies.join(" ");
     createStaticFiles(appName);
@@ -81,11 +83,13 @@ function createReactApp(appName) {
     createApp(appName);
     createReadmeGit(appName);
     createTestSetup(appName);
-    execSync(`(cd ${appPath} && git init)`);
-    exec(`cd ${appPath} && npm i -D ${devDep} && npm i -S ${dep}`, () => {
-      console.log("Setup Done! :D");
-      return execSync(`cd ${appPath} && leviosa-start`, {
-        stdio: [0, 1, 2]
+    exec(`git init ${appPath}`);
+    exec(`npm i --save-dev ${devDep} --prefix ${appPath}`).on("exit", () => {
+      exec(`npm i --save ${dep} --prefix ${appPath}`).on("exit", () => {
+        console.log(chalk.yellow("Setup Done :D"));
+        return execSync(`cd ${appPath} && leviosa-start`, {
+          stdio: [0, 1, 2]
+        });
       });
     });
   });

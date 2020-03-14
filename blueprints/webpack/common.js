@@ -2,7 +2,7 @@ const webpackCommonConfig = () => `const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: ["react-hot-loader/patch", "./index.js"],
+  entry: ["react-hot-loader/patch", "@babel/polyfill", "./index.js"],
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "build")

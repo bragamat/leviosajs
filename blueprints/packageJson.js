@@ -1,4 +1,11 @@
 const packagesList = {
+  script: `{
+    "scripts": {
+      "start": "webpack-dev-server --open --config webpack.dev.js --hot",
+      "build": "webpack --config webpack.prod.js",
+      "test": "jest --watchAll"
+    }
+  }`,
   dependencies: ["react", "react-dom", "styled-components"],
   devDependencies: [
     "@testing-library/react",
@@ -6,6 +13,7 @@ const packagesList = {
     "babel-jest",
     "babel-loader",
     "@babel/core",
+    "@babel/polyfill",
     "@babel/preset-env",
     "@babel/preset-react",
     "webpack",
