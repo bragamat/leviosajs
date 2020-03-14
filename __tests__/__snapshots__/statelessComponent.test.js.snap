@@ -2,7 +2,7 @@
 
 exports[`Stateless Component should match snapshot 1`] = `
 "import React from 'react'
-//import { Container } from './styles
+//import { Container } from './styles'
 function Header() {
   return \\"Please Change me! 😄\\"
 }
