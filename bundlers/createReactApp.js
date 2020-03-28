@@ -1,7 +1,7 @@
 const fs = require("fs");
 const chalk = require("chalk");
 const mkdirp = require("mkdirp");
-const { exec, execSync } = require("child_process");
+const { execSync } = require("child_process");
 const readMe = require("../blueprints/readMe.js");
 const staticFiles = require("../blueprints/static");
 const appTest = require("../blueprints/tests/AppTest");
@@ -77,21 +77,33 @@ function createReactApp(appName) {
   mkdirp(`./${appName}/src/`).then(() => {
     const dep = dependencies.join(" ");
     const devDep = devDependencies.join(" ");
-    createStaticFiles(appName);
-    createWebpackConfig(appName);
-    createAppIndex(appName);
-    createApp(appName);
-    createReadmeGit(appName);
-    createTestSetup(appName);
-    exec(`git init ${appPath}`);
-    exec(`npm i --save-dev ${devDep} --prefix ${appPath}`).on("exit", () => {
-      exec(`npm i --save ${dep} --prefix ${appPath}`).on("exit", () => {
-        console.log(chalk.yellow("Setup Done :D"));
-        return execSync(`cd ${appPath} && leviosa-start`, {
+    try {
+      createStaticFiles(appName);
+      createWebpackConfig(appName);
+      createAppIndex(appName);
+      createApp(appName);
+      createReadmeGit(appName);
+      createTestSetup(appName);
+      execSync(`git init ${appPath}`, {
+        stdio: [0, 1, 2]
+      });
+
+      setTimeout(() => {
+        execSync(`npm i --save-dev ${devDep} --prefix ${appPath}`, {
           stdio: [0, 1, 2]
         });
-      });
-    });
+        execSync(`npm i --save ${dep} --prefix ${appPath}`, {
+          stdio: [0, 1, 2]
+        });
+        execSync(`cd ${appPath} && leviosa-start`, {
+          stdio: [0, 1, 2]
+        });
+        console.log(chalk.yellow("Setup Done :D"));
+      }, 300);
+    } catch (error) {
+      console.log(error);
+    }
+    return appPath;
   });
 }
 
