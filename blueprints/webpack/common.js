@@ -8,6 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, "build")
   },
   devServer: {
+    historyApiFallback: true,
     inline: true,
     contentBase: "./public",
     port: 3333
