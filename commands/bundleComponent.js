@@ -1,6 +1,11 @@
 #! /usr/bin/env node
-const bundleComponent = require("../helpers");
+const { createComponent } = require("../bundlers");
 
-const run = async () => bundleComponent;
+const bundleComponent = () => {
+  if (!process.argv[2])
+    return console.log("Need to provide a name for component");
 
-run();
+  return createComponent(process.argv[2]);
+};
+
+bundleComponent();
