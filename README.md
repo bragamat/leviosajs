@@ -1,4 +1,4 @@
-![leviosajs](https://img.shields.io/badge/leviosajs-1.2.46-yellowgreen) ![node](https://img.shields.io/badge/node-12.9.1-yellow) ![npm](https://img.shields.io/badge/npm-6.11.3-yellow)
+![leviosajs](https://img.shields.io/badge/leviosajs-1.2.48-yellowgreen) ![node](https://img.shields.io/badge/node-12.9.1-yellow) ![npm](https://img.shields.io/badge/npm-6.11.3-yellow)
 
 ![leviosa](https://pa1.narvii.com/6660/c238c33782e1318a08f7778b8890629121d458ac_hq.gif)
 # It's LEVIOSA, not leviosaaah!
