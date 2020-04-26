@@ -1,21 +1,20 @@
-// const path = require("path");
 const fs = require("fs");
+const path = require("path");
 const mkdirp = require("mkdirp");
 const { stateless, styles } = require("../blueprints/ReactComponents");
 
 const writeComponent = (fileName, content) => {
-  const dir = `src/components/${fileName}`;
+  const dir = path.resolve("src", "components", fileName);
 
   mkdirp.sync(dir);
-  return fs.writeFile(`${dir}/index.js`, content, err => {
+  return fs.writeFile(path.resolve(dir, "index.js"), content, err => {
     if (err) throw err;
   });
 };
 
 const writeStyle = (fileName, content) => {
-  const dir = `src/components/${fileName}`;
-
-  return fs.writeFile(`${dir}/styles.js`, content, err => {
+  const dir = path.resolve("src", "components", fileName);
+  return fs.writeFile(path.resolve(dir, "styles.js"), content, err => {
     if (err) throw err;
     return console.log("\nDone");
   });

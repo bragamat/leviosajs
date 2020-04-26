@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 const chalk = require("chalk");
 const mkdirp = require("mkdirp");
 const { execSync } = require("child_process");
@@ -33,56 +34,59 @@ const writeInFile = (fileName, content) => {
 };
 
 function createProductionServer(appName) {
-  const dir = `${appName}/server`;
+  const dir = path.resolve(appName, "server");
   mkdirp(dir).then(() => {
-    writeInFile(`${dir}/server.js`, productionRunner);
+    writeInFile(path.resolve(dir, "server.js"), productionRunner);
   });
 }
 
 function createStaticFiles(appName) {
-  const dir = `${appName}/public/`;
+  const dir = path.resolve(appName, "public");
   mkdirp(dir).then(() => {
-    writeInFile(`${dir}index.html`, staticFiles());
-    writeInFile(`${appName}/package.json`, script);
+    writeInFile(path.resolve(dir, "index.html"), staticFiles());
+    writeInFile(path.resolve(appName, "package.json"), script);
   });
 }
 
 function createWebpackConfig(appName) {
-  writeInFile(`${appName}/webpack.common.js`, common());
-  writeInFile(`${appName}/webpack.dev.js`, dev());
-  writeInFile(`${appName}/webpack.prod.js`, prod());
+  writeInFile(path.resolve(appName, "webpack.common.js"), common());
+  writeInFile(path.resolve(appName, "webpack.dev.js"), dev());
+  writeInFile(path.resolve(appName, "webpack.prod.js"), prod());
 }
 
 function createAppIndex(appName) {
-  writeInFile(`${appName}/index.js`, reactIndex());
-  writeInFile(`${appName}/globalStyle.js`, globalStyle());
+  writeInFile(path.resolve(appName, "index.js"), reactIndex());
+  writeInFile(path.resolve(appName, "globalStyle.js"), globalStyle());
 }
 
 function createApp(appName) {
-  writeInFile(`${appName}/src/App.js`, stateless(false, app()));
-  writeInFile(`${appName}/src/styles.js`, styles(appStyle));
+  writeInFile(path.resolve(appName, "src", "App.js"), stateless(false, app()));
+  writeInFile(path.resolve(appName, "src", "styles.js"), styles(appStyle));
 
-  const dir = `${appName}/src/__tests__/`;
+  const dir = path.resolve(appName, "src", "__test__");
+
   mkdirp(dir).then(() => {
-    writeInFile(`${dir}App.test.js`, appTest());
+    writeInFile(path.resolve(dir, "App.test.js"), appTest());
   });
 }
 
 function createReadmeGit(appName) {
-  writeInFile(`${appName}/readme.md`, readMe(appName));
-  writeInFile(`${appName}/.gitignore`, gitIgnore());
+  writeInFile(path.resolve(appName, "readme.md"), readMe(appName));
+  writeInFile(path.resolve(appName, ".gitignore"), gitIgnore());
 }
 
 function createTestSetup(appName) {
-  writeInFile(`${appName}/jest.config.js`, jestConfig());
-  writeInFile(`${appName}/babel.config.js`, babelConfig());
+  writeInFile(path.resolve(appName, "jest.config.js"), jestConfig());
+  writeInFile(path.resolve(appName, "babel.config.js"), babelConfig());
 }
 
 function createReactApp(appName) {
-  const appPath = `${process.cwd()}/${appName}`;
+  const appPath = path.resolve(process.cwd(), appName);
+
   console.log(chalk.yellow("wait a minute please"));
   console.log(chalk.yellow("Creating application......."));
-  mkdirp(`./${appName}/src/`).then(() => {
+
+  mkdirp(path.resolve(".", appName, "src")).then(() => {
     const dep = dependencies.join(" ");
     const devDep = devDependencies.join(" ");
     try {
