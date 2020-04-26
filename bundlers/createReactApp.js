@@ -8,6 +8,7 @@ const appTest = require("../blueprints/tests/AppTest");
 const jestConfig = require("../blueprints/jestConfig");
 const gitIgnore = require("../blueprints/gitIgnore.js");
 const babelConfig = require("../blueprints/babelConfig");
+const productionRunner = require("../blueprints/servers/production");
 const {
   devDependencies,
   dependencies,
@@ -30,6 +31,13 @@ const writeInFile = (fileName, content) => {
     if (err) throw err;
   });
 };
+
+function createProductionServer(appName) {
+  const dir = `${appName}/server`;
+  mkdirp(dir).then(() => {
+    writeInFile(`${dir}/server.js`, productionRunner);
+  });
+}
 
 function createStaticFiles(appName) {
   const dir = `${appName}/public/`;
@@ -84,6 +92,7 @@ function createReactApp(appName) {
       createApp(appName);
       createReadmeGit(appName);
       createTestSetup(appName);
+      createProductionServer(appName);
       execSync(`git init ${appPath}`, {
         stdio: [0, 1, 2]
       });
