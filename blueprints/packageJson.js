@@ -1,7 +1,8 @@
 const packagesList = {
   script: `{
     "scripts": {
-      "start": "webpack-dev-server --open --config webpack.dev.js --hot",
+      "dev": "webpack-dev-server --open --config webpack.dev.js --hot",
+      "start": "node server/server.js",
       "build": "webpack --config webpack.prod.js",
       "test": "jest --watchAll"
     }
