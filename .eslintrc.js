@@ -1,34 +1,38 @@
 module.exports = {
   env: {
-    es6: true
+    es6: true,
   },
   extends: [
-    "plugin:react/recommended",
-    "airbnb",
-    "prettier",
-    "prettier/react",
-    "plugin:jest/recommended"
+    'plugin:react/recommended',
+    'airbnb',
+    'prettier',
+    'prettier/react',
+    'plugin:jest/recommended',
   ],
   globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly",
-    __DEV__: "readonly",
-    jest: true
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+    __DEV__: 'readonly',
+    jest: true,
   },
-  parser: "babel-eslint",
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 2018,
-    sourceType: "module"
+    sourceType: 'module',
   },
-  plugins: ["react", "prettier", "jest"],
+  plugins: ['react', 'prettier', 'jest'],
   rules: {
-    "prettier/prettier": "error",
-    "react/jsx-filename-extension": ["warn", { extensions: [".jsx", ".js"] }],
-    "import/prefer-default-export": "off",
-    "no-console": "off",
-    "global-require": "off"
-  }
-};
+    'prettier/prettier': 'error',
+    'react/jsx-filename-extension': [
+      'warn',
+      { extensions: ['.jsx', '.js'] },
+    ],
+    'import/prefer-default-export': 'off',
+    'no-console': 'off',
+    'global-require': 'off',
+    'jest/valid-expect-in-promise': 'off',
+  },
+}

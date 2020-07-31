@@ -1,15 +1,17 @@
-const chalk = require("chalk");
-const figlet = require("figlet");
+const chalk = require('chalk')
+const figlet = require('figlet')
 
 function runConsoleMessages() {
-  console.clear();
+  console.clear()
   console.log(
-    chalk.yellow(figlet.textSync("LEVIOSA!", { horizontalLayout: "full" }))
-  );
+    chalk.yellow(
+      figlet.textSync('LEVIOSA!', { horizontalLayout: 'full' }),
+    ),
+  )
 
-  console.log(chalk.yellow("\nLeviosaJS successufully installed!"));
+  console.log(chalk.yellow('\nLeviosaJS successufully installed!'))
 }
 
-runConsoleMessages();
+runConsoleMessages()
 
-module.exports = runConsoleMessages;
+module.exports = runConsoleMessages

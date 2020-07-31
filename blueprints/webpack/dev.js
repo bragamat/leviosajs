@@ -1,4 +1,4 @@
-const webPackDevConfig = () => `const merge = require("webpack-merge");
+const webPackDevConfig = () => `const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
 
 module.exports = merge(common, {
@@ -7,6 +7,6 @@ module.exports = merge(common, {
   devServer: {
     contentBase: "./public"
   }
-});`;
+});`
 
-module.exports = webPackDevConfig;
+module.exports = webPackDevConfig
