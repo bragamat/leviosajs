@@ -1,3 +1,3 @@
 module.exports = {
-  setup: (component, ...args) => component(...args).toString()
-};
+  setup: (component, ...args) => component(...args).toString(),
+}
