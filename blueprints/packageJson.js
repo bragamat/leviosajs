@@ -7,23 +7,26 @@ const packagesList = {
       "test": "jest --watchAll"
     }
   }`,
-  dependencies: ["react", "react-dom", "styled-components"],
+  dependencies: ['react', 'react-dom', 'styled-components'],
   devDependencies: [
-    "@testing-library/react",
-    "jest",
-    "babel-jest",
-    "babel-loader",
-    "@babel/core",
-    "@babel/polyfill",
-    "@babel/preset-env",
-    "@babel/preset-react",
-    "webpack",
-    "webpack-cli",
-    "webpack-merge",
-    "webpack-dev-server",
-    "html-webpack-plugin",
-    "react-hot-loader"
-  ]
-};
+    '@testing-library/react',
+    'jest',
+    'babel-jest',
+    'babel-loader',
+    '@babel/core',
+    '@babel/polyfill',
+    '@babel/preset-env',
+    '@babel/preset-react',
+    'babel-minify-webpack-plugin',
+    'webpack-bundle-analyzer',
+    'webpack',
+    'webpack-cli',
+    'webpack-merge',
+    'webpack-dev-server',
+    'html-webpack-plugin',
+    'react-hot-loader',
+    'svg-inline-loader',
+  ],
+}
 
-module.exports = packagesList;
+module.exports = packagesList

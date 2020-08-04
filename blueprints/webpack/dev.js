@@ -1,12 +1,35 @@
 const webPackDevConfig = () => `const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
 
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
+
 module.exports = merge(common, {
+  entry: ["react-hot-loader/patch", "@babel/polyfill"],
   mode: "development",
   devtool: "inline-source-map",
   devServer: {
-    contentBase: "./public"
-  }
+    historyApiFallback: true,
+    inline: true,
+    contentBase: "./public",
+    port: 3333,
+    overlay: true
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loaders: ["react-hot-loader/webpack", "babel-loader"],
+        include: path.join(__dirname, "src")
+      }
+    ]
+  },
+  plugins: [
+    new BundleAnalyzerPlugin({
+      generateStatsFile: true
+    })
+  ]
 });`
 
 module.exports = webPackDevConfig
