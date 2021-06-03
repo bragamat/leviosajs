@@ -34,7 +34,7 @@
     "test": "jest --watchAll",
     "test:nowatch": "jest",
     "lint": "./node_modules/.bin/eslint ./helpers ./bundlers --fix",
-    "postinstall": "node ./helpers/postInstallMessage.js"
+    "postinstall": "./helpers/postInstallMessage.js"
   },
   "repository": {
     "type": "git",
