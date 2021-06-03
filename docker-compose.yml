@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  leviosa:
+    build: .
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/leviosa
+      - ./test-app:/app
+    ports:
+      - 3333:3333

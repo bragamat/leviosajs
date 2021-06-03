@@ -4,6 +4,6 @@ const jestConfig = () => `module.exports = {
     __DEV__: true
   }
 };
-`;
+`
 
-module.exports = jestConfig;
+module.exports = jestConfig

@@ -9,6 +9,6 @@ const staticFiles = () => `<!DOCTYPE html>
 <body>
   <div react-root="app"></div>
 </body>
-</html>`;
+</html>`
 
-module.exports = staticFiles;
+module.exports = staticFiles

@@ -7,6 +7,6 @@ describe("<App />", () => {
   it("should render without errors", () => {
     render(<App />);
   });
-});`;
+});`
 
-module.exports = testContent;
+module.exports = testContent

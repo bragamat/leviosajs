@@ -43,6 +43,6 @@ const GlobalStyle = createGlobalStyle\`
 \`
 
 export default GlobalStyle
-`;
+`
 
-module.exports = globalStyle;
+module.exports = globalStyle

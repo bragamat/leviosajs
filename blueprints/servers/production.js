@@ -10,6 +10,6 @@ app.get("*", (req, res) => {
 });
 app.listen(port, () => {
   console.log("Production Build running");
-});`;
+});`
 
-module.exports = productionRunner;
+module.exports = productionRunner

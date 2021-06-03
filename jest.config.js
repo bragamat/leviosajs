@@ -1,7 +1,7 @@
 module.exports = {
   verbose: true,
   globals: {
-    __DEV__: true
+    __DEV__: true,
   },
-  modulePathIgnorePatterns: ["utils"]
-};
+  modulePathIgnorePatterns: ['utils'],
+}

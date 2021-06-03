@@ -1,18 +1,18 @@
 const chalk = require('chalk')
 const mkdirp = require('mkdirp')
 const { execSync } = require('child_process')
-const readMe = require('../blueprints/readMe.js')
+const readMe = require('../blueprints/readMe')
 const staticFiles = require('../blueprints/static')
 const appTest = require('../blueprints/tests/AppTest')
 const jestConfig = require('../blueprints/jestConfig')
-const gitIgnore = require('../blueprints/gitIgnore.js')
+const gitIgnore = require('../blueprints/gitIgnore')
 const babelConfig = require('../blueprints/babelConfig')
 const productionRunner = require('../blueprints/servers/production')
 const {
   devDependencies,
   dependencies,
   script,
-} = require('../blueprints/packageJson.js')
+} = require('../blueprints/packageJson')
 
 const {
   stateless,
@@ -91,9 +91,13 @@ function createReactApp(appName) {
     .then(() => createProductionServer(appName))
     .then(() => runCommand(`git init ${appPath}`, 'git'))
     .then(() =>
-      runCommand(`npm i --save-dev ${devDep} --prefix ${appPath}`),
+      runCommand(
+        `npm i --save-dev ${devDep} --prefix ${appPath} --force`,
+      ),
     )
-    .then(() => runCommand(`npm i --save ${dep} --prefix ${appPath}`))
+    .then(() =>
+      runCommand(`npm i --save ${dep} --prefix ${appPath} --force`),
+    )
     .then(() => console.log(chalk.yellow('Setup Done :D')))
     .then(() =>
       execSync(`cd ${appPath} && leviosa-start`, {

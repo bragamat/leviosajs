@@ -4,9 +4,6 @@ const common = require("./webpack.common.js");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-  .BundleAnalyzerPlugin;
-
 module.exports = merge(common, {
   entry: ["react-hot-loader/patch", "@babel/polyfill"],
   mode: "development",
@@ -23,7 +20,10 @@ module.exports = merge(common, {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loaders: ["react-hot-loader/webpack", "babel-loader"],
+        use: [
+          { loader: 'react-hot-loader/webpack' },
+          { loader: 'babel-loader' },
+        ],
         include: path.join(__dirname, "src")
       }
     ]
