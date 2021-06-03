@@ -91,9 +91,9 @@ function createReactApp(appName) {
     .then(() => createProductionServer(appName))
     .then(() => runCommand(`git init ${appPath}`, 'git'))
     .then(() =>
-      runCommand(`npm i --save-dev ${devDep} --prefix ${appPath}`),
+      runCommand(`npm i --save-dev ${devDep} --prefix ${appPath} --force`),
     )
-    .then(() => runCommand(`npm i --save ${dep} --prefix ${appPath}`))
+    .then(() => runCommand(`npm i --save ${dep} --prefix ${appPath} --force`))
     .then(() => console.log(chalk.yellow('Setup Done :D')))
     .then(() =>
       execSync(`cd ${appPath} && leviosa-start`, {
