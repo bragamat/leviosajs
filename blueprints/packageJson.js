@@ -1,7 +1,7 @@
 const packagesList = {
   script: `{
     "scripts": {
-      "dev": "webpack-dev-server --open --config webpack.dev.js --hot",
+      "dev": "webpack serve --open --config webpack.dev.js --hot",
       "start": "node server/server.js",
       "build": "webpack --config webpack.prod.js",
       "test": "jest --watchAll"
@@ -19,7 +19,7 @@ const packagesList = {
     '@babel/preset-react',
     'babel-minify-webpack-plugin',
     'webpack-bundle-analyzer',
-    'webpack',
+    'webpack@5',
     'webpack-cli',
     'webpack-merge',
     'webpack-dev-server',
