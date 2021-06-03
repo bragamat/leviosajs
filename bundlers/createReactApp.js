@@ -1,18 +1,18 @@
 const chalk = require('chalk')
 const mkdirp = require('mkdirp')
 const { execSync } = require('child_process')
-const readMe = require('../blueprints/readMe.js')
+const readMe = require('../blueprints/readMe')
 const staticFiles = require('../blueprints/static')
 const appTest = require('../blueprints/tests/AppTest')
 const jestConfig = require('../blueprints/jestConfig')
-const gitIgnore = require('../blueprints/gitIgnore.js')
+const gitIgnore = require('../blueprints/gitIgnore')
 const babelConfig = require('../blueprints/babelConfig')
 const productionRunner = require('../blueprints/servers/production')
 const {
   devDependencies,
   dependencies,
   script,
-} = require('../blueprints/packageJson.js')
+} = require('../blueprints/packageJson')
 
 const {
   stateless,
