@@ -25,6 +25,6 @@ export const ListItem = styled.li\`
   margin-top: 10px;
   margin-bottom: 10px;
 \`;
-`;
+`
 
-module.exports = appStyle;
+module.exports = appStyle

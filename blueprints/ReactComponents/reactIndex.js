@@ -21,6 +21,6 @@ if (module.hot) {
     render(<NextRootContainer />);
   });
 }
-`;
+`
 
-module.exports = reactIndex;
+module.exports = reactIndex

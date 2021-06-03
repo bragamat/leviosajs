@@ -56,6 +56,6 @@ function App() {
 }
 
 export default hot(App);
-`;
+`
 
-module.exports = appComponent;
+module.exports = appComponent

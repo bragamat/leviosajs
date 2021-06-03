@@ -10,6 +10,6 @@ Similar to [create-react-app](https://github.com/facebook/create-react-app) but 
 ## Setup
   *npm i && npm start*
 
-`;
+`
 
-module.exports = readMe;
+module.exports = readMe

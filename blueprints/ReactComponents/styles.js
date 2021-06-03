@@ -1,5 +1,5 @@
 const style = content => {
-  if (content) return content;
+  if (content) return content
 
   return `import styled from 'styled-components'
 
@@ -11,7 +11,7 @@ export const Container = styled.div\`
   align-items: center;
 
 \`
-`;
-};
+`
+}
 
-module.exports = style;
+module.exports = style
