@@ -75,12 +75,23 @@ function createTestSetup(appName) {
   )
 }
 
-function createReactApp(appName) {
-  const appPath = `${process.cwd()}/${appName}`
+function buildPathToInstall(appName, installOnCurrentDirectory) {
+  if (installOnCurrentDirectory) {
+    return `${process.cwd()}`
+  }
+
+  return `${process.cwd()}/${appName}`
+}
+function createReactApp({ appName: appBuild, installOnCurrentDirectory }) {
+  let appName = appBuild
+  const appPath = buildPathToInstall(appName, installOnCurrentDirectory)
   console.log(chalk.yellow('wait a minute please'))
   console.log(chalk.yellow('Creating application.......'))
   const dep = dependencies.join(' ')
   const devDep = devDependencies.join(' ')
+  if(installOnCurrentDirectory) {
+    appName = './'
+  }
   mkdirp(`./${appName}/src/`)
     .then(() => createStaticFiles(appName))
     .then(() => createWebpackConfig(appName))
