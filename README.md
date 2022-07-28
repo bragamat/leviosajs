@@ -14,12 +14,15 @@
 
 ### Installation
 
+```
 npm install --global leviosajs
+```
 
 or using yarn
 
-> yarn global add leviosajs
-
+```
+yarn global add leviosajs
+```
 
 ### Commands
 
@@ -30,22 +33,30 @@ or using yarn
 - `leviosa-test` - Runs our test suites :+1:
 
 ### Command Usage
-`leviosa-new`
-- It receives an argument, what will be the name of the application. Let's say we want to create a reactjs application with the name _created-with-leviosajs_, All we have to do is:
-`$ leviosa-new created-with-leviosajs`
-It will bundle all the application and will open it on browser.
+#### `leviosa-new <application-name>`
+- It recieves the name of the application as an argument. Then it bundles all the application and opens it in the browser. 
 
-`leviosa-accio`
-- It will ask for an input, what will be the name of the component we want to build. Let's say we want to create a new component named _Header_ within our already built reactjs application. Run the command:
-`$ leviosa-accio header`
- and it will bundle a functional component named `Header` and its styles within `appName/src/components/Header/index.js` (Don't worry if you don't have the folder `components`, if non existent, it will be created automatically)
+Example :
+- Let's say we want to create a reactjs application with the name _created-with-leviosajs_. All we have to do is:
+```
+$ leviosa-new created-with-leviosajs
+```
+
+#### `leviosa-accio <component-name>`
+- It recieves the name of the component as an argument.  It bundels a functional component named `Header` and its styles it in `appName/src/components/Header/index.js` (Don't worry if you don't have the folder `components`, if the folder does not exists it will be created automatically)
  _obs: you should be within your app's directory_
+
+Example : 
+- Let's say we want to create a new component named _Header_ within our already built reactjs application. Run the command:
+```
+$ leviosa-accio header
+```
  
-`leviosa-start`
+#### `leviosa-start`
  - It will start the application. You can pass a `--production` flag and run the production build locally.
 
-`leviosa-build`
- - It builds the application in **production mode**, so we can use it
+#### `leviosa-build`
+ - It builds the application in **production mode** so it can be used
 
-`leviosa-test`
+#### `leviosa-test`
 - It runs all our test suites
